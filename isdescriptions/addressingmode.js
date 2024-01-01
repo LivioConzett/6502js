@@ -1,3 +1,6 @@
+
+const ADDRESSINGMODE_TEXT =
+`
 <div class="infoTitle">Addressing Modes</div>
 
 <div class="infoTitle1">Immediate Addressing</div>
@@ -170,3 +173,4 @@
     </div>
     shifts the contents of the accumulator to the right.
 </div>
+`

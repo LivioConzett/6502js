@@ -1,3 +1,6 @@
+
+const SHIFTANDROTATE_TEXT =
+`
 <div class="infoTitle">Shift and Rotate</div>
 <div class="infoText">
     The 6502 has four instructions that either shift or rotate a memory location (or Accumulator) by one bit. Two instructions go left,
@@ -122,3 +125,4 @@
         </li>
     </ul>
 </div>
+`

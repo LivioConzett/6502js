@@ -1,174 +1,174 @@
 const INSTRUCTION_SET_INFO = {
 
     ADDRESSINGMODE:{
-        url:['addressingmode.html']
+        url: [ADDRESSINGMODE_TEXT]
     },
     ADC:{
-        url:['addition.html','representationOfNumbers.html','signedNumberArithmetic.html']
+        url:[ADDITION_TEXT,REPRESENTATIONOFNUMBERS_TEXT,SIGNEDNUMBERARITHMATIC_TEXT]
     },
     AND:{
-        url:['logicalInstructions.html','and.html']
+        url:[LOGICALINSTRUCTIONS_TEXT,AND_TEXT]
     },
     ASL:{
-        url:['shiftAndRotate.html']
+        url:[SHIFTANDROTATE_TEXT]
     },
     BCC:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BCS:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BEQ:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BIT:{
-        url:['bit.html']
+        url:[BIT_TEXT]
     },
     BMI:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BNE:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BPL:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BRK:{
-        url:['interupts.html']
+        url:[INTERUPTS_TEXT]
     },
     BVC:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     BVS:{
-        url:['branch.html']
+        url:[BRANCH_TEXT]
     },
     CLC:{
-        url:['carry.html']
+        url:[CARRY_TEXT]
     },
     CLD:{
-        url:['decimalMode.html','representationOfNumbers.html']
+        url:[DECIMALMODE_TEXT,REPRESENTATIONOFNUMBERS_TEXT]
     },
     CLI:{
-        url:['interupts.html']
+        url:[INTERUPTS_TEXT]
     },
     CLV:{
-        url:['signedNumberArithmetic.html']
+        url:[SIGNEDNUMBERARITHMATIC_TEXT]
     },
     CMP:{
-        url:['compare.html']
+        url:[COMPARE_TEXT]
     },
     CPX:{
-        url:['compare.html']
+        url:[COMPARE_TEXT]
     },
     CPY:{
-        url:['compare.html']
+        url:[COMPARE_TEXT]
     },
     DEC:{
-        url:['incrementAndDecrement.html']
+        url:[INCREMENTANDDECREMENT_TEXT]
     },
     DEX:{
-        url:['incrementAndDecrement.html']
+        url:[INCREMENTANDDECREMENT_TEXT]
     },
     DEY:{
-        url:['incrementAndDecrement.html']
+        url:[INCREMENTANDDECREMENT_TEXT]
     },
     EOR:{
-        url:['logicalInstructions.html','xor.html']
+        url:[LOGICALINSTRUCTIONS_TEXT,XOR_TEXT]
     },
     INC:{
-        url:['incrementAndDecrement.html']
+        url:[INCREMENTANDDECREMENT_TEXT]
     },
     INX:{
-        url:['incrementAndDecrement.html']
+        url:[INCREMENTANDDECREMENT_TEXT]
     },
     INY:{
-        url:['incrementAndDecrement.html']
+        url:[INCREMENTANDDECREMENT_TEXT]
     },
     JMP:{
-        url:['jump.html']
+        url:[JUMP_TEXT]
     },
     JSR:{
-        url:['subroutine.html']
+        url:[SUBROUTINE_TEXT]
     },
     LDA:{
-        url:['loadAndStore.html']
+        url:[LOADANDSTORE_TEXT]
     },
     LDX:{
-        url:['loadAndStore.html']
+        url:[LOADANDSTORE_TEXT]
     },
     LDY:{
-        url:['loadAndStore.html']
+        url:[LOADANDSTORE_TEXT]
     },
     LSR:{
-        url:['shiftAndRotate.html']
+        url:[SHIFTANDROTATE_TEXT]
     },
     NOP:{
-        url:['nop.html']
+        url:[NOP_TEXT]
     },
     ORA:{
-        url:['logicalInstructions.html','or.html']
+        url:[LOGICALINSTRUCTIONS_TEXT,OR_TEXT]
     },
     PHA:{
-        url:['stack.html']
+        url:[STACK_TEXT]
     },
     PHP:{
-        url:['stack.html']
+        url:[STACK_TEXT]
     },
     PLA:{
-        url:['stack.html']
+        url:[STACK_TEXT]
     },
     PLP:{
-        url:['stack.html']
+        url:[STACK_TEXT]
     },
     ROL:{
-        url:['shiftAndRotate.html']
+        url:[SHIFTANDROTATE_TEXT]
     },
     ROR:{
-        url:['shiftAndRotate.html']
+        url:[SHIFTANDROTATE_TEXT]
     },
     RTI:{
-        url:['interupts.html']
+        url:[INTERUPTS_TEXT]
     },
     RTS:{
-        url:['subroutine.html']
+        url:[SUBROUTINE_TEXT]
     },
     SBC:{
-        url:['subtraction.html','representationOfNumbers.html','signedNumberArithmetic.html']
+        url:[SUBTRACTION_TEXT,REPRESENTATIONOFNUMBERS_TEXT,SIGNEDNUMBERARITHMATIC_TEXT]
     },
     SEC:{
-        url:['carry.html']
+        url:[CARRY_TEXT]
     },
     SED:{
-        url:['decimalMode.html','representationOfNumbers.html']
+        url:[DECIMALMODE_TEXT,REPRESENTATIONOFNUMBERS_TEXT]
     },
     SEI:{
-        url:['interupts.html']
+        url:[INTERUPTS_TEXT]
     },
     STA:{
-        url:['loadAndStore.html']
+        url:[LOADANDSTORE_TEXT]
     },
     STX:{
-        url:['loadAndStore.html']
+        url:[LOADANDSTORE_TEXT]
     },
     STY:{
-        url:['loadAndStore.html']
+        url:[LOADANDSTORE_TEXT]
     },
     TAX:{
-        url:['transfer.html']
+        url:[TRANSFER_TEXT]
     },
     TAY:{
-        url:['transfer.html']
+        url:[TRANSFER_TEXT]
     },
     TSX:{
-        url:['transfer.html','stack.html']
+        url:[TRANSFER_TEXT,STACK_TEXT]
     },
     TXA:{
-        url:['transfer.html']
+        url:[TRANSFER_TEXT]
     },
     TXS:{
-        url:['transfer.html','stack.html']
+        url:[TRANSFER_TEXT,STACK_TEXT]
     },
     TYA:{
-        url:['transfer.html']
+        url:[TRANSFER_TEXT]
     }
 }

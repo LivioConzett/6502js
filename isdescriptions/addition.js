@@ -1,3 +1,6 @@
+
+const ADDITION_TEXT =
+`
 <div class="infoTitle">Addition</div>
 <!-- <div class="infoText">
     The 6502 has only one add instruction. This is the <u>Ad</u>d to Accumulator with <u>C</u>arry (ADC), in which "Carry" is the Carry 
@@ -73,3 +76,4 @@
         <div>        STA $01</div>
     </div>
 </div>
+`

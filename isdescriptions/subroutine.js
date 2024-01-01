@@ -1,3 +1,6 @@
+
+const SUBROUTINE_TEXT =
+`
 <div class="infoTitle">Subroutines</div>
 <div class="infoText">
     Subroutines can be looked at as the equivelent of a function in a highlevel language.<br>
@@ -48,3 +51,4 @@
         <div>   RTS             ;RETURN FROM SUBROUTINE</div>
     </div>
 </div>
+`

@@ -1,3 +1,6 @@
+
+const INTERUPTS_TEXT =
+`
 <div class="infoTitle">Interrupts</div>
 <div class="infoText">
     The 6502 processor has two types of external interrupts.
@@ -125,3 +128,4 @@
         <div>BNE DOBRKSTUFF ;IF B IS SET DO BREAK STUFF</div>
     </div>
 </div>
+`

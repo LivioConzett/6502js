@@ -1,3 +1,6 @@
+
+const REPRESENTATIONOFNUMBERS_TEXT =
+`
 <div class="infoTitle">Representation of Numbers</div>
 <div class="infoText">
     The 6502 processor can work with both <i>signed</i> and <i>unsigned</i> numbers. The processor itself doesn't care what form the numbers
@@ -171,3 +174,4 @@
         </table>
     </div>
 </div>
+`

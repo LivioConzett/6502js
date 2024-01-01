@@ -1,3 +1,6 @@
+
+const SUBTRACTION_TEXT =
+`
 <div class="infoTitle">Subtraction</div>
 <div class="infoText">
     <!-- The 6502 processor has only one subtract instruction. This is the <u>S</u>u<u>b</u>tract from Accumulator with 
@@ -62,3 +65,4 @@
         <div>        STA $02</div>
     </div>
 </div>
+`

@@ -1,3 +1,6 @@
+
+const BRANCH_TEXT =
+`
 <div class="infoTitle">Branch Instructions</div>
 <div class="infoText">
     Branch instructions are like the JMP instuctions in that they jump to a different place in memory and execute code there.
@@ -140,3 +143,4 @@
     In fact, this approach should be used whenever possible, because a branch test that fails takes one less cycle to execute than a branch 
     test that succeeds.
 </div> -->
+`

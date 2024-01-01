@@ -1,3 +1,6 @@
+
+const LOGICALINSTRUCTIONS_TEXT =
+`
 <div class="infoTitle">Logical Instructions</div>
 <div class="infoText">
     In some cases one might want to comapre not the whole 8-bit value, but just a sinlge bit of it.
@@ -31,3 +34,4 @@
         </li>
     </ul>
 </div>
+`

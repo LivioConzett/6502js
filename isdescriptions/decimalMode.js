@@ -1,3 +1,6 @@
+
+const DECIMALMODE_TEXT =
+`
 <div class="infoTitle">Decimal Mode</div>
 <div class="infoText">
     The 6502's Arithmetic Logic Unit (ALU) can function in two different modes: <i>binary</i> and <i>decimal</i>. These two modes determine
@@ -62,3 +65,4 @@
     clears/sets the decimal mode flag (D) in the status register.
     At startup of the 6502 processor the mode is undifined and must be set first.
 </div>
+`

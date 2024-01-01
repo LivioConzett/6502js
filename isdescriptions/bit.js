@@ -1,3 +1,6 @@
+
+const BIT_TEXT =
+`
 <div class="infoTitle">BIT</div>
 <div class="infoText">
     The 6502 processor has an instruction that allows you to test the value of individual bits in memory, by logically ANDing the contents 
@@ -25,3 +28,4 @@
         <div>BEQ ISOK   ;BRANCH TO ISOK IS BIT 3 = 0</div>
     </div>
 </div>
+`

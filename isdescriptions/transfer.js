@@ -1,3 +1,6 @@
+
+const TRANSFER_TEXT =
+`
 <div class="infoTitle">Transfers</div>
 <div class="infoText">
     The 6502 has 6 instructions to transfer values between registers:
@@ -40,3 +43,4 @@
         </li>
     </ul>
 </div>
+`

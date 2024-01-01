@@ -1,3 +1,6 @@
+
+const COMPARE_TEXT =
+`
 <div class="infoTitle">Compare Instructions</div>
 <div class="infoText">
    There are three compare instructions:
@@ -50,3 +53,4 @@
         <div>        .</div>
     </div>
 </div>
+`

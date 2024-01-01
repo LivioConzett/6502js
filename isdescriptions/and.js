@@ -1,6 +1,9 @@
+
+const AND_TEXT =
+`
 <div class="infoTitle">AND Instruction</div>
 <div class="infoText">
-    The AND instruction is primaily used to filter, maks, or strip out certain bits in 
+    The AND instruction is primarily used to filter, maks, or strip out certain bits in 
     the accumulator. That way, some form of processing can be done on the remaining bits.
     If both bits in a position are 1, the resulting bit will be one; otherwise it will be 0. The result is stored in the accumulator.
     The following table summarizes the AND condition:
@@ -168,3 +171,4 @@
     </div>
     are executed? The accumulator will contain 00001000 (BCD 8).
 </div> -->
+`

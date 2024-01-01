@@ -1,3 +1,6 @@
+
+const SIGNEDNUMBERARITHMATIC_TEXT =
+`
 <div class="infoTitle">Signed Number Arithmetic</div>
 <div class="infoText">
     Having only one zero using the two's-complement isn't the only advantage.<br>
@@ -34,3 +37,4 @@
     Adding a two's complement number to another value will cause a wrap-around that results in the correct answer.
     This means, that for the processor, <i>it doesn't matter if the number is signed or not</i>.
 </div>
+`

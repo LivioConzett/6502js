@@ -1,3 +1,6 @@
+
+const STACK_TEXT =
+`
 <div class="infoTitle">Stack Operations</div>
 <div class="infoText">
     The Stack is a space in memory from $0100 to $01FF. The 6502 processor can push values onto the stack and pull thoes values
@@ -39,3 +42,4 @@
         <div>TXS      ;TRANSFER X TO THE STACK POINTER</div>
     </div>
 </div>
+`

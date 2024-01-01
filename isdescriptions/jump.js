@@ -1,3 +1,6 @@
+
+const JUMP_TEXT =
+`
 <div class="infoTitle">Jump</div>
 <div class="infoText">
     The JMP instruction will jump to a given place in memory and continue executing the program there. It is <i>unconditional</i> and 
@@ -28,3 +31,4 @@
     In the example the value from memory location $0003 is loaded into the Accumulator. If the value is zero the program will branch to HERE.
     If the value if not zero the program will jump to THERE.
 </div>
+`

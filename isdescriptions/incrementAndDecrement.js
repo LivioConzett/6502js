@@ -1,3 +1,6 @@
+
+const INCREMENTANDDECREMENT_TEXT =
+`
 <div class="infoTitle">Increment and Decrement Instuctions</div>
 
 <div class="infoTitle1">Increment / Decrement Registers</div>
@@ -59,3 +62,4 @@
     However, when incrementing one can check the Zero flag to see if a wrap around has occured and when decrementing one can check the 
     Negative flag to determine when one has passed zero (again, a wrap around has happened).
 </div>
+`

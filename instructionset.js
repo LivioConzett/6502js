@@ -56,12 +56,12 @@ searchInput.addEventListener('keyup', (e) =>{
 
     if(e.code === 'Enter'){
         // if searching for something new reset the position
-        if(lastSearchedTerm.toUpperCase() != term.toUpperCase() && searchFromTop.checked){
+        if(lastSearchedTerm.toUpperCase() !== term.toUpperCase() && searchFromTop.checked){
             lastFoundElementPos = 0;
             lastSearchedTerm = term;
         }
 
-        if(term != ''){
+        if(term !== ''){
             searchInput.select();
             search(term);
         }
@@ -109,17 +109,8 @@ for(let p = 0; p < instructionHoldertList.length; p++){
                 
                 let d = document.createElement('div');
                 d.id = `info${i}`;
+                d.innerHTML = INSTRUCTION_SET_INFO[title].url[i] + '<div class="infoEndOfFile"></div>';
                 instructionInfoHolder.append(d);
-
-                axios.get(`/isdescriptions/${INSTRUCTION_SET_INFO[title].url[i]}`)
-                .then(data=>{
-                    document.getElementById(`info${i}`).innerHTML = data.data + '<div class="infoEndOfFile"></div>';
-
-                })
-                .catch(err=>{
-                    // console.log(err);
-                    document.getElementById(`info${i}`).innerHTML = 'NO INFO FOUND ON THIS';
-                });
 
             }
 

@@ -1,3 +1,6 @@
+
+const LOADANDSTORE_TEXT =
+`
 <div class="infoTitle">Load And Store Instructions</div>
 
 <div class="infoText">
@@ -39,3 +42,4 @@
     </div>
     This sotres the decimal value 69 in memory location $0003.
 </div>
+`
