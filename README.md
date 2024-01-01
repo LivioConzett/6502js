@@ -1,2 +1,5 @@
 # 6502js
-js 6502 project
+
+A look-up table of the 6502 instruction-set.  
+A simulator running in js to run 6502 programs.
+

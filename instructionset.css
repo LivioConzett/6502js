@@ -1,0 +1,589 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+    /*font-weight: bold;*/
+    /*user-select: none; */
+}
+
+*:focus {
+    outline: none;
+}
+
+a{
+    color: #c5c8c6;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #1d1f21;
+}
+
+.spacer{
+    flex:1;
+}
+
+.mainHolder{
+    height: 95vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.leftHolder{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+}
+
+.instructionHolder{
+    color: #c5c8c6;
+    width: 600px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    position: relative;
+}
+
+.instructionHolder:hover{
+    color: #8c9440;
+}
+
+.instructionHolder:hover .opTable{
+    color: #8c9440;
+    border-color: #8c9440;
+}
+
+.instructionHolder:hover .opTable td{
+    color: #8c9440;
+    border-color: #8c9440;
+}
+
+.instructionHolder:hover .opTable th{
+    color: #8c9440;
+    border-color: #8c9440;
+}
+
+.instructionHolder a{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    /* background-color: green; */
+}
+
+.instructionTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.instructionFullName{
+    font-size: 20px;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.instructionDescription{
+    font-size: 15px;
+    white-space: pre;
+}
+
+.statusTable{
+    /* background-color: green; */
+    font-size: 15px;
+    width: 120px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.statusHolder{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* background-color: blue; */
+    padding-bottom: 10px;
+}
+
+.opTable{
+    width: 100%;
+    border: solid 2px #c5c8c6;
+    border-collapse: collapse;
+    white-space: pre;
+}
+
+.opTable th{
+    border: solid 1px #c5c8c6;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.opTable td{
+    border-right: solid 1px #c5c8c6;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 2px;
+}
+
+.opTable td:nth-child(1){
+    width: 200px;
+}
+
+.opTable td:nth-child(2){
+    border:none;
+    padding-left: 30px;
+    width: 90px;
+}
+
+.opTable td:nth-child(3){
+    padding-left: 0px;
+}
+
+.opTable td:nth-child(4){
+    padding-left: 0px;
+    text-align: center;
+}
+
+.opTable td:nth-child(5){
+    padding-left: 0px;
+    text-align: center;
+}
+
+.opTable td:nth-child(6){
+    padding-left: 0px;
+    text-align: center;
+}
+
+.exeptions{
+    font-size: 12px;
+    padding-top: 5px;
+    white-space: pre;
+}
+
+
+/* found highlighter ---------------- */
+.found{
+    color: #5f819d;
+}
+
+.found .opTable{
+    color: #5f819d;
+    border-color: #5f819d;
+}
+
+.found .opTable td{
+    color: #5f819d;
+    border-color: #5f819d;
+}
+
+.found .opTable th{
+    color: #5f819d;
+    border-color: #5f819d;
+}
+
+/* clicked highlighter ---------------- */
+.clicked{
+    color: #f0c674;
+}
+
+.clicked .opTable{
+    color: #f0c674;
+    border-color: #f0c674;
+}
+
+.clicked .opTable td{
+    color: #f0c674;
+    border-color: #f0c674;
+}
+
+.clicked .opTable th{
+    color: #f0c674;
+    border-color: #f0c674;
+}
+
+
+.middleHolder{
+    height: 100%;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #c5c8c6;
+}
+
+.instructionsetInput{
+    font-size: 15px;
+    border: none;
+    background-color: #373b41;
+    color: #c5c8c6;
+    padding: 5px;
+}
+
+.searchCheckBoxHolder{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.label{
+    font-size: 15px;
+}
+
+.nothingFoundMessage{
+    font-size: 15px;
+    color: #a54242;
+    visibility: hidden;
+}
+
+.instructionInfoTitle{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.rightHolder{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #c5c8c6;
+}
+
+.rightTitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.symboleTable{
+    font-size: 13px;
+}
+
+.symboleTable td{
+    vertical-align: top;
+    white-space: pre;
+}
+
+.symboleTable td:nth-child(1){
+    padding-right: 10px;
+}
+
+
+.disclaimerHolder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: visible;
+    background-color: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disclaimerWindow{
+    width: 600px;
+    /* height: 500px; */
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.disclaimerTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.disclaimerText{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.controlButton{
+    border: solid 1px #c5c8c6;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.disclaimerButton{
+    height: 30px;
+}
+
+
+
+
+.instructionInfoHolder{
+    width: 100%;
+    overflow-y: scroll;
+    font-family: sans-serif;
+    font-size: 15px;
+
+    background-color: #fadda6;
+    color: #1d1f21;
+    padding: 10px;
+}
+
+.instructionInfoHolder a{
+    color: #1d1f21;
+}
+
+.infoTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.infoTitle1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.infoTableHolder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.infoTable{
+    font-size: 15px;
+    text-align: center;
+}
+
+.infoTable td:last-child{
+    text-align: left;
+}
+
+.infoTable th{
+    padding-right: 15px;
+}
+
+.infoTable td{
+    padding-right: 15px;
+    white-space: pre;
+}
+
+.infoText{
+    text-indent: 20px;
+}
+
+.infoCode{
+    font-size: 15px;
+    margin: 10px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #f7c971;
+    color: #1d1f21;
+    font-family: monospace;
+    text-indent: 0px;
+}
+
+.infoCode div{
+    white-space: pre;
+}
+
+.infoMiddle{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-indent: 0px;
+}
+
+.infoRule{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left:20px;
+    margin-right:20px;
+    text-indent: 0px;
+}
+
+.infoList{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    text-indent: 0px;
+}
+
+.infoEndOfFile{
+    height: 50px;
+}
+
+.infoEndOfInfo{
+    height: 200px;
+}
+
+o{
+    text-decoration: overline;
+    text-decoration-thickness: 2px;
+
+}
+u{
+    text-decoration-thickness: 2px;
+}
+
+g{
+    color:green;
+}
+
+r{
+    color:red;
+}
+
+
+
+.infoShiftDrawingHolderBottom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+}
+
+.infoShiftDrawingHolderTopLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+}
+
+.infoShiftDrawingHolderTopRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    padding-right: 20px;
+}
+
+.infoShiftDrawingTwoHolder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoShiftDrawingByte{
+    width: 220px;
+    height: 40px;
+    border: solid 2px #1d1f21;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.infoShiftDrawingCarry{
+    width: 40px;
+    height: 40px;
+    border: solid 2px #1d1f21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoShiftDrawingZero{
+    width: 40px;
+    height: 40px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoShiftDrawingArrowLeft{
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid #1d1f21;
+    /* float: right; */
+}
+
+.infoShiftDrawingArrowRight{
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #1d1f21;
+    /* float: right; */
+}
+
+.infoShiftDrawingArrowLine{
+    width: 60px;
+    background: #1d1f21;
+    height: 2px;
+    /* float: left; */
+}
+
+.infoShiftDrawingLineUp{
+    flex:1;
+    background: #1d1f21;
+    width: 2px;
+}
+
+.infoShiftDrawingLineUpHolder{
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+}
+
+.infoShiftDrawingLineHolderRight{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width:40px;
+}
+
+.infoShiftDrawingLineHolderLeft{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width:40px;
+}
+
+.infoShiftDrawingLineSpacer{
+    flex:1;
+}
+
+.infoShiftDrawingUpperLine{
+    width: 380px;
+    background: #1d1f21;
+    height: 2px;
+}

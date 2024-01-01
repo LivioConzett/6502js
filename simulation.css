@@ -1,0 +1,370 @@
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+    /*font-weight: bold;*/
+    /*user-select: none; */
+}
+
+*:focus {
+    outline: none;
+}
+
+a{
+    color: #c5c8c6;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #1d1f21;
+}
+
+.spacer{
+    flex:1;
+}
+
+.mainHolder{
+    height: 95vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.leftHolder{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    min-width: 600px;
+}
+
+.buttonHolder{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    height: 30px;
+}
+
+.controlButton{
+    border: solid 1px #c5c8c6;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.codeHolder{
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: #373b41;
+    padding-top: 10px;
+
+}
+
+.lineNumbersHolder{
+    font-size: 15px;
+    background-color: #707880;
+    height: 40px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.lineNumberElement{
+    display: flex;
+    flex-direction: row;
+}
+
+.codeArea{
+    resize: none;
+    flex:1;
+    height: 40px;
+    font-size: 15px;
+    border: none;
+    background-color: #373b41;
+    color: #c5c8c6;
+    margin-left: 5px;
+
+}
+
+.terminal{
+    flex:1;
+    width: 100%;
+    resize: none;
+    color: #c5c8c6;
+    background-color: #1d1f21;
+    border: none;
+}
+
+.middleHolder{
+    height: 100%;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+
+    color: #c5c8c6;
+}
+
+.counterHolder{
+    width: 100%;
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+.counterTable{
+    width: 100%;
+}
+
+.counterTable td{
+    text-align: center;
+}
+
+.registersHolder{
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.registerTable{
+    width: 100%;
+}
+
+.registerTable td{
+    text-align: center;
+}
+
+.statusFlagHolder{
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+
+}
+
+.statusTable{
+    width: 100%;
+}
+
+.statusTable td{
+    text-align: center;
+}
+
+.memoryHolder{
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.memoryTextArea{
+    border: none;
+    width: 100%;
+    height: 150px;
+    resize: none;
+    /* font-size: 13px; */
+    color: #c5c8c6;
+    background-color: #1d1f21;
+    margin-bottom: 10px;
+}
+
+.memoryLabel{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.rightHolder{
+    height: 100%;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #c5c8c6;
+
+}
+
+.stackArea{
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.altRightHolder{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex:0;
+}
+
+.lcdScreen{
+    background-color: #b5bd68;
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lcdInput{
+    width: 100%;
+    flex:1;
+    border: none;
+    font-size: 35px;
+    color: #1d1f21;
+    background: transparent;
+
+}
+
+.settingsHolder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    background-color: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settingsWindow{
+    width: 500px;
+    height: 500px;
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.settingUnderTitle{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.settingText{
+    font-size: 15px;
+}
+
+.settingInput{
+    font-size: 15px;
+    border: none;
+    background-color: #373b41;
+    color: #c5c8c6;
+    padding: 5px;
+}
+
+.helpHolder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: hidden;
+    background-color: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.helpWindow{
+    /* width: 500px; */
+    height: 500px;
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.helpWindoScroll{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.helpTableHolder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.helpTable{
+    text-align: center;
+}
+
+.helpTable td:last-child{
+    text-align: left;
+}
+
+.helpTable th{
+    padding-right: 15px;
+}
+
+.helpTable td{
+    padding-right: 15px;
+    white-space: pre;
+}
+
+.disclaimerHolder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    visibility: visible;
+    background-color: rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disclaimerWindow{
+    width: 600px;
+    /* height: 500px; */
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.disclaimerTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.disclaimerText{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.disclaimerButton{
+    height: 30px;
+}

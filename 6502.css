@@ -1,0 +1,212 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+    /*font-weight: bold;*/
+    /*user-select: none; */
+}
+
+*:focus {
+    outline: none;
+}
+
+a{
+    color: #c5c8c6;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: #1d1f21;
+}
+
+.mainTextHolder{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.mainTitle{
+    font-size: 100px;
+    color: #c5c8c6;
+    padding-top: 30px;
+
+}
+
+.infoText{
+    color: #c5c8c6;
+    font-size: 25px;
+}
+
+.linkHolder{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.link{
+    color: #c5c8c6;
+    cursor: pointer;
+    position: relative;
+}
+
+.link:hover{
+    color: #8c9440;
+}
+
+.link a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.linkTitle{
+    font-size: 40px;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+
+.codeHolder{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+.lineNumbers{
+    padding: 5px;
+    background-color: #707880
+}
+
+.code{
+    background-color: #373b41;
+    padding: 5px;
+    flex:1;
+}
+
+.code div{
+    white-space: pre;
+}
+
+
+.instructionHolder{
+    /* color: #c5c8c6; */
+    width: 600px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    /* position: relative; */
+    border-color: #c5c8c6;
+}
+
+.instructionHolder:hover{
+    color: #8c9440;
+    border-color: #8c9440;
+}
+
+.instructionTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.instructionFullName{
+    font-size: 20px;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.instructionDescription{
+    font-size: 15px;
+    white-space: pre;
+}
+
+.statusTable{
+    font-size: 15px;
+    width: 120px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.statusHolder{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+
+.opTable{
+    width: 100%;
+    border: solid 2px;
+    border-collapse: collapse;
+    white-space: pre;
+}
+
+.opTable th{
+    border: solid 1px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.opTable td{
+    border-right: solid 1px;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 2px;
+}
+
+.opTable td:nth-child(1){
+    width: 200px;
+}
+
+.opTable td:nth-child(2){
+    border:none;
+    padding-left: 30px;
+    width: 90px;
+}
+
+.opTable td:nth-child(3){
+    padding-left: 0px;
+}
+
+.opTable td:nth-child(4){
+    padding-left: 0px;
+    text-align: center;
+}
+
+.opTable td:nth-child(5){
+    padding-left: 0px;
+    text-align: center;
+}
+
+.opTable td:nth-child(6){
+    padding-left: 0px;
+    text-align: center;
+}
+
+.exeptions{
+    font-size: 12px;
+    padding-top: 5px;
+    white-space: pre;
+}
+
+.aboutMe{
+    padding-top: 50px;
+    font-size: 15px;
+}

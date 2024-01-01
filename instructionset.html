@@ -1,0 +1,3778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6502 Processor - instructionset</title>
+    <meta name="description" content="Look up 6502 Processor OP OCDES / Instructionset with their meaning, function, hex values and a lot more.">
+
+    <link rel="stylesheet" href="instructionset.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+    <div class="mainHolder">
+
+        <div class="leftHolder">
+
+
+    <!-- ------Addressing Mode------- -->
+    <div class="instructionHolder"
+                 data-tags="Addressing Mode">
+                <a router href='/instructionset/ADDRESSINGMODE'></a>
+                <div class="instructionTitle">Addressing Mode</div>
+                <table class="opTable">
+                    <tr>
+                        <th>Mode</th>
+                        <th>Operand Formate</th>
+                    </tr>
+                    <tr><td> </td><td> </td></tr>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>#dd</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>aa</td>
+                    </tr>
+                    <tr>
+                        <td>Implied</td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Absolute</td>
+                        <td>(aaaa)</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute Indexed X</td>
+                        <td>aaaa,X or aaaaX</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute Indexed Y</td>
+                        <td>aaaa,Y or aaaaY</td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page Indexed X</td>
+                        <td>aa,X or aaX</td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page Indexed Y</td>
+                        <td>aa,Y or aaY</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>(aa,X) or (aaX)</td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>(aa),Y or (aa)Y</td>
+                    </tr>
+                    <tr>
+                        <td>Relative</td>
+                        <td>aa or aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>Accumulator</td>
+                        <td>A</td>
+                    </tr>
+                    <tr><td> </td><td> </td></tr>
+                </table>
+            </div>
+
+    <!-- ------ADC------- -->
+            <div class="instructionHolder"
+                data-tags="ADC 69 65 75 6D 7D 79 61 71">
+                <a router href='/instructionset/ADC'></a>
+                <div class="instructionTitle">ADC</div>
+                <div class="instructionFullName">
+                    Add to Accumulator with Carry
+                </div>
+                <div class="instructionDescription">Opertation: A + M + C → A, C</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>√</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>ADC</td><td>#dd</td>
+                        <td>69</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>ADC</td><td>aa</td>
+                        <td>65</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>ADC</td><td>aa,X</td>
+                        <td>75</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>ADC</td><td>aaaa</td>
+                        <td>6D</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>ADC</td><td>aaaa,X</td>
+                        <td>7D</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>ADC</td><td>aaaa,Y</td>
+                        <td>79</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>ADC</td><td>(aa,X)</td>
+                        <td>61</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>ADC</td><td>(aa),Y</td>
+                        <td>71</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+
+    <!-- ------AND------- -->
+            <div class="instructionHolder"
+                data-tags="AND 29 25 35 2D 3D 39 21 31">
+                <a router href='/instructionset/AND'></a>
+                <div class="instructionTitle">AND</div>
+                <div class="instructionFullName">
+                    AND Memory with Accumulator
+                </div>
+                <div class="instructionDescription">Logical AND to the Accumulator</div>
+                <div class="instructionDescription">Opertation: A ⋀ M → A</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>AND</td><td>#dd</td>
+                        <td>29</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>AND</td><td>aa</td>
+                        <td>25</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>AND</td><td>aa,X</td>
+                        <td>35</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>AND</td><td>aaaa</td>
+                        <td>2D</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>AND</td><td>aaaa,X</td>
+                        <td>3D</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>AND</td><td>aaaa,Y</td>
+                        <td>39</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>AND</td><td>(aa,X)</td>
+                        <td>21</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>AND</td><td>(aa),Y</td>
+                        <td>31</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+
+    <!-- ------ASL------- -->
+            <div class="instructionHolder"
+                data-tags="ASL 0A 06 16 0E 1E">
+                <a router href='/instructionset/ASL'></a>
+                <div class="instructionTitle">ASL</div>
+                <div class="instructionFullName">
+                    Accumulator Shift Left
+                </div>
+                <div class="instructionDescription">Opertation: C ← |7|6|5|4|3|2|1|0| ← 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Accumulator</td>
+                        <td>ASL</td><td>A</td>
+                        <td>0A</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>ASL</td><td>aa</td>
+                        <td>06</td>
+                        <td>2</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>ASL</td><td>aa,X</td>
+                        <td>16</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>ASL</td><td>aaaa</td>
+                        <td>0E</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>ASL</td><td>aaaa,X</td>
+                        <td>1E</td>
+                        <td>3</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------BCC------- -->
+            <div class="instructionHolder"
+                data-tags="BCC 90">
+                <a router href='/instructionset/BCC'></a>
+                <div class="instructionTitle">BCC</div>
+                <div class="instructionFullName">
+                    Branch on Carry Clear
+                </div>
+                <div class="instructionDescription">Opertation: Branch on C = 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BCC</td><td>aa</td>
+                        <td>90</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to different page</div>
+            </div>
+
+    <!-- ------BCS------- -->
+            <div class="instructionHolder"
+                data-tags="BCS B0">
+                <a router href='/instructionset/BCS'></a>
+                <div class="instructionTitle">BCS</div>
+                <div class="instructionFullName">
+                    Branch on Carry Set
+                </div>
+                <div class="instructionDescription">Opertation: Branch on C = 1</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BCS</td><td>aa</td>
+                        <td>B0</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to next page</div>
+            </div>
+           
+    <!-- ------BEQ------- -->
+            <div class="instructionHolder"
+                data-tags="BEQ F0">
+                <a router href='/instructionset/BEQ'></a>
+                <div class="instructionTitle">BEQ</div>
+                <div class="instructionFullName">
+                    Branch on Result Equal to Zero
+                </div>
+                <div class="instructionDescription">Opertation: Branch on Z = 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BEQ</td><td>aa</td>
+                        <td>F0</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to next page</div>
+            </div>
+        
+    <!-- ------BIT------- -->
+            <div class="instructionHolder"
+                data-tags="BIT 24 2C">
+                <a router href='/instructionset/BIT'></a>
+                <div class="instructionTitle">BIT</div>
+                <div class="instructionFullName">
+                    Tests Bits in Memory with Accumulator
+                </div>
+                <div class="instructionDescription">Opertation: A   M, M<sub>7</sub> → N, M<sub>6</sub> → V</div>
+                <div class="instructionDescription">  Bit 6 and 7 are transferred to the Status Register. If the</div>
+                <div class="instructionDescription">  result of A  M is zero then Z = 1, otherwise Z = 0</div>
+
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>M<sub>7</sub></td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>M<sub>6</sub></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>BIT</td><td>aa</td>
+                        <td>24</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>BIT</td><td>aaaa</td>
+                        <td>2C</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------BMI------- -->
+            <div class="instructionHolder"
+                data-tags="BMI 30">
+                <a router href='/instructionset/BMI'></a>
+                <div class="instructionTitle">BMI</div>
+                <div class="instructionFullName">
+                    Branch on Result Minus
+                </div>
+                <div class="instructionDescription">Opertation: Branch on N = 1</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BMI</td><td>aa</td>
+                        <td>30</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to different page</div>
+            </div>
+    
+    <!-- ------BNE------- -->
+            <div class="instructionHolder"
+                data-tags="BNE D0">
+                <a router href='/instructionset/BNE'></a>
+                <div class="instructionTitle">BNE</div>
+                <div class="instructionFullName">
+                    Branch on Result Not Equal to Zero
+                </div>
+                <div class="instructionDescription">Opertation: Branch on Z = 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BNE</td><td>aa</td>
+                        <td>D0</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to different page</div>
+            </div>
+
+    <!-- ------BPL------- -->
+            <div class="instructionHolder"
+                data-tags="BPL 10">
+                <a router href='/instructionset/BPL'></a>
+                <div class="instructionTitle">BPL</div>
+                <div class="instructionFullName">
+                    Branch on Result Plus
+                </div>
+                <div class="instructionDescription">Opertation: Branch on N = 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BPL</td><td>aa</td>
+                        <td>10</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to different page</div>
+            </div>
+        
+    <!-- ------BRK------- -->
+            <div class="instructionHolder"
+                data-tags="BRK 00">
+                <a router href='/instructionset/BRK'></a>
+                <div class="instructionTitle">BRK</div>
+                <div class="instructionFullName">
+                    Force Break
+                </div>
+                <div class="instructionDescription">Opertation: Forced Interupt PC + 2 ↓ P ↓</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>B</th>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>1</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>BRK</td><td> </td>
+                        <td>00</td>
+                        <td>1</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------BVC------- -->
+            <div class="instructionHolder"
+                data-tags="BVC 50">
+                <a router href='/instructionset/BVC'></a>
+                <div class="instructionTitle">BVC</div>
+                <div class="instructionFullName">
+                    Branch on Overflow Clear
+                </div>
+                <div class="instructionDescription">Opertation: Branch on V = 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BVC</td><td>aa</td>
+                        <td>50</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to different page</div>
+            </div>
+        
+    <!-- ------BVS------- -->
+            <div class="instructionHolder"
+                data-tags="BVS 70">
+                <a router href='/instructionset/BVS'></a>
+                <div class="instructionTitle">BVS</div>
+                <div class="instructionFullName">
+                    Branch on Overflow Set
+                </div>
+                <div class="instructionDescription">Opertation: Branch on V = 1</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Relative</td>
+                        <td>BVS</td><td>aa</td>
+                        <td>70</td>
+                        <td>2</td>
+                        <td>2*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if branch occurs to same page</div>
+                <div class="exeptions">  Add 2 if branch occurs to different page</div>
+            </div>
+    
+    <!-- ------CLC------- -->
+            <div class="instructionHolder"
+                data-tags="CLC 18">
+                <a router href='/instructionset/CLC'></a>
+                <div class="instructionTitle">CLC</div>
+                <div class="instructionFullName">
+                    Clear Carry Flag
+                </div>
+                <div class="instructionDescription">Opertation: C → 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>CLC</td><td> </td>
+                        <td>18</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------CLD------- -->
+            <div class="instructionHolder"
+                data-tags="CLD D8">
+                <a router href='/instructionset/CLD'></a>
+                <div class="instructionTitle">CLD</div>
+                <div class="instructionFullName">
+                    Clear Decimal Mode
+                </div>
+                <div class="instructionDescription">Opertation: D → 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>0</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>CLD</td><td> </td>
+                        <td>D8</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------CLI------- -->
+            <div class="instructionHolder"
+                data-tags="CLI 58">
+                <a router href='/instructionset/CLI'></a>
+                <div class="instructionTitle">CLI</div>
+                <div class="instructionFullName">
+                    Clear Interrupt Disable Bit
+                </div>
+                <div class="instructionDescription">Opertation: I → 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>0</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>CLI</td><td> </td>
+                        <td>58</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------CLV------- -->
+            <div class="instructionHolder"
+                data-tags="CLV B8">
+                <a router href='/instructionset/CLV'></a>
+                <div class="instructionTitle">CLV</div>
+                <div class="instructionFullName">
+                    Clear Overflow Flag
+                </div>
+                <div class="instructionDescription">Opertation: V → 0</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>0</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>CLV</td><td> </td>
+                        <td>B8</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------CMP------- -->
+            <div class="instructionHolder"
+                data-tags="CMP C9 C5 D5 CD DD D9 C1 D1">
+                <a router href='/instructionset/CMP'></a>
+                <div class="instructionTitle">CMP</div>
+                <div class="instructionFullName">
+                    Compare Memory and Accumulator
+                </div>
+                <div class="instructionDescription">Opertation: A - M</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediat</td>
+                        <td>CMP</td><td>#dd</td>
+                        <td>C9</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>CMP</td><td>aa</td>
+                        <td>C5</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>CMP</td><td>aa,X</td>
+                        <td>D5</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>CMP</td><td>aaaa</td>
+                        <td>CD</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>CMP</td><td>aaaa,X</td>
+                        <td>DD</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>CMP</td><td>aaaa,Y</td>
+                        <td>D9</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>CMP</td><td>(aa,X)</td>
+                        <td>C1</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>CMP</td><td>(aa),Y</td>
+                        <td>D1</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+    
+    <!-- ------CPX------- -->
+            <div class="instructionHolder"
+                data-tags="CPX E0 E4 EC">
+                <a router href='/instructionset/CPX'></a>
+                <div class="instructionTitle">CPX</div>
+                <div class="instructionFullName">
+                    Compare Memory and Index X
+                </div>
+                <div class="instructionDescription">Opertation: X - M</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediat</td>
+                        <td>CPX</td><td>#dd</td>
+                        <td>E0</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>CPX</td><td>aa</td>
+                        <td>E4</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>CPX</td><td>aaaa</td>
+                        <td>EC</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------CPY------- -->
+            <div class="instructionHolder"
+                data-tags="CPY C0 C4 CC">
+                <a router href='/instructionset/CPY'></a>
+                <div class="instructionTitle">CPY</div>
+                <div class="instructionFullName">
+                    Compare Memory and Index Y
+                </div>
+                <div class="instructionDescription">Opertation: Y - M</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediat</td>
+                        <td>CPY</td><td>#dd</td>
+                        <td>C0</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>CPY</td><td>aa</td>
+                        <td>C4</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>CPY</td><td>aaaa</td>
+                        <td>CC</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------DEC------- -->
+            <div class="instructionHolder"
+                data-tags="DEC C6 D6 CE DE">
+                <a router href='/instructionset/DEC'></a>
+                <div class="instructionTitle">DEC</div>
+                <div class="instructionFullName">
+                    Decrement Memory by One
+                </div>
+                <div class="instructionDescription">Opertation: M - 1 → M</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>DEC</td><td>aa</td>
+                        <td>C6</td>
+                        <td>2</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>DEC</td><td>aa,X</td>
+                        <td>D6</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>DEC</td><td>aaaa</td>
+                        <td>CE</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>DEC</td><td>aaaa,X</td>
+                        <td>DE</td>
+                        <td>3</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+    
+    <!-- ------DEX------- -->
+            <div class="instructionHolder"
+                data-tags="DEX CA">
+                <a router href='/instructionset/DEX'></a>
+                <div class="instructionTitle">DEX</div>
+                <div class="instructionFullName">
+                    Decrement Index X by One
+                </div>
+                <div class="instructionDescription">Opertation: X - 1 → X</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>DEX</td><td> </td>
+                        <td>CA</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------DEY------- -->
+            <div class="instructionHolder"
+                data-tags="DEY 88">
+                <a router href='/instructionset/DEY'></a>
+                <div class="instructionTitle">DEY</div>
+                <div class="instructionFullName">
+                    Decrement Index Y by One
+                </div>
+                <div class="instructionDescription">Opertation: Y - 1 → Y</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>DEY</td><td> </td>
+                        <td>88</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------EOR------- -->
+            <div class="instructionHolder"
+                data-tags="EOR 49 45 55 4D 5D 59 41 51 XOR">
+                <a router href='/instructionset/EOR'></a>
+                <div class="instructionTitle">EOR</div>
+                <div class="instructionFullName">
+                    Exclusive-OR Memory with Accumulator
+                </div>
+                <div class="instructionDescription">Opertation: A ⊻ M → A</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>EOR</td><td>#dd</td>
+                        <td>49</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>EOR</td><td>aa</td>
+                        <td>45</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>EOR</td><td>aa,X</td>
+                        <td>55</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>EOR</td><td>aaaa</td>
+                        <td>4D</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>EOR</td><td>aaaa,X</td>
+                        <td>5D</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>EOR</td><td>aaaa,Y</td>
+                        <td>59</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>EOR</td><td>(aa,X)</td>
+                        <td>41</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>EOR</td><td>(aa),Y</td>
+                        <td>51</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+
+    <!-- ------INC------- -->
+            <div class="instructionHolder"
+                data-tags="INC E6 F6 EE FE">
+                <a router href='/instructionset/INC'></a>
+                <div class="instructionTitle">INC</div>
+                <div class="instructionFullName">
+                    Increment Memory by One
+                </div>
+                <div class="instructionDescription">Opertation: M + 1 → M</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>INC</td><td>aa</td>
+                        <td>E6</td>
+                        <td>2</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>INC</td><td>aa,X</td>
+                        <td>F6</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>INC</td><td>aaaa</td>
+                        <td>EE</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>INC</td><td>aaaa,X</td>
+                        <td>FE</td>
+                        <td>3</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------INX------- -->
+            <div class="instructionHolder"
+                data-tags="INX E8">
+                <a router href='/instructionset/INX'></a>
+                <div class="instructionTitle">INX</div>
+                <div class="instructionFullName">
+                    Increment Index X by One
+                </div>
+                <div class="instructionDescription">Opertation: X + 1 → X</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>INX</td><td> </td>
+                        <td>E8</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------INY------- -->
+            <div class="instructionHolder"
+                data-tags="INY C8">
+                <a router href='/instructionset/INY'></a>
+                <div class="instructionTitle">INY</div>
+                <div class="instructionFullName">
+                    Increment Index Y by One
+                </div>
+                <div class="instructionDescription">Opertation: Y + 1 → Y</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>INY</td><td> </td>
+                        <td>C8</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------JMP------- -->
+            <div class="instructionHolder"
+                data-tags="JMP 4C 6C">
+                <a router href='/instructionset/JMP'></a>
+                <div class="instructionTitle">JMP</div>
+                <div class="instructionFullName">
+                    Jump
+                </div>
+                <div class="instructionDescription">Opertation: (PC + 1) → PCL</div>
+                <div class="instructionDescription">            (PC + 2) → PCH</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>JMP</td><td> aaaa</td>
+                        <td>4C</td>
+                        <td>3</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect</td>
+                        <td>JMP</td><td>(aaaa)</td>
+                        <td>6C</td>
+                        <td>3</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------JSR------- -->
+            <div class="instructionHolder"
+                data-tags="JSR 20">
+                <a router href='/instructionset/JSR'></a>
+                <div class="instructionTitle">JSR</div>
+                <div class="instructionFullName">
+                    Jump to Subroutine
+                </div>
+                <div class="instructionDescription">Opertation: PC + 2↓ (PC + 1) → PCL</div>
+                <div class="instructionDescription">                    (PC + 2) → PCH</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>JSR</td><td> aaaa</td>
+                        <td>20</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+            
+    <!-- ------LDA------- -->
+            <div class="instructionHolder"
+                data-tags="LDA A9 A5 B5 AD BD B9 A1 B1">
+                <a router href='/instructionset/LDA'></a>
+                <div class="instructionTitle">LDA</div>
+                <div class="instructionFullName">
+                    Load Accumulator with Memory
+                </div>
+                <div class="instructionDescription">Opertation: M → A</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>LDA</td><td>#dd</td>
+                        <td>A9</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>LDA</td><td>aa</td>
+                        <td>A5</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>LDA</td><td>aa,X</td>
+                        <td>B5</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>LDA</td><td>aaaa</td>
+                        <td>AD</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>LDA</td><td>aaaa,X</td>
+                        <td>BD</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>LDA</td><td>aaaa,Y</td>
+                        <td>B9</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>LDA</td><td>(aa,X)</td>
+                        <td>A1</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>LDA</td><td>(aa),Y</td>
+                        <td>B1</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+
+    <!-- ------LDX------ -->
+            <div class="instructionHolder"
+                data-tags="LDX A2 A6 B6 AE BE">
+                <a router href='/instructionset/LDX'></a>
+                <div class="instructionTitle">LDX</div>
+                <div class="instructionFullName">
+                    Load Index X with Memory
+                </div>
+                <div class="instructionDescription">Opertation: M → X</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>LDX</td><td>#dd</td>
+                        <td>A2</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>LDX</td><td>aa</td>
+                        <td>A6</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, Y</td>
+                        <td>LDX</td><td>aa,Y</td>
+                        <td>B6</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>LDX</td><td>aaaa</td>
+                        <td>AE</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>LDX</td><td>aaaa,Y</td>
+                        <td>BE</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 when page boundery is crossed</div>
+            </div>
+
+    <!-- ------LDY------ -->
+            <div class="instructionHolder"
+                data-tags="LDY A0 A4 B4 AC BC">
+                <a router href='/instructionset/LDY'></a>
+                <div class="instructionTitle">LDY</div>
+                <div class="instructionFullName">
+                    Load Index Y with Memory
+                </div>
+                <div class="instructionDescription">Opertation: M → Y</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>LDY</td><td>#dd</td>
+                        <td>A0</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>LDY</td><td>aa</td>
+                        <td>A4</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>LDY</td><td>aa,X</td>
+                        <td>B4</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>LDY</td><td>aaaa</td>
+                        <td>AC</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>LDY</td><td>aaaa,X</td>
+                        <td>BC</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 when page boundery is crossed</div>
+            </div>
+
+    <!-- ------LSR------ -->
+            <div class="instructionHolder"
+                data-tags="LSR 4A 46 56 4E 5E">
+                <a router href='/instructionset/LSR'></a>
+                <div class="instructionTitle">LSR</div>
+                <div class="instructionFullName">
+                    Local Shift Right
+                </div>
+                <div class="instructionDescription">Opertation: 0 → |7|6|5|4|3|2|1|0| → C</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Accumulator</td>
+                        <td>LSR</td><td>A</td>
+                        <td>4A</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>LSR</td><td>aa</td>
+                        <td>46</td>
+                        <td>2</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>LSR</td><td>aa,X</td>
+                        <td>56</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>LSR</td><td>aaaa</td>
+                        <td>4E</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>LSR</td><td>aaaa,X</td>
+                        <td>5E</td>
+                        <td>3</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------NOP------ -->
+            <div class="instructionHolder"
+                data-tags="NOP EA ELECTRONICARTS ELECTRONIC ARTS">
+                <a router href='/instructionset/NOP'></a>
+                <div class="instructionTitle">NOP</div>
+                <div class="instructionFullName">
+                    No Operationr
+                </div>
+                <div class="instructionDescription">Opertation: No Operation (2 cycles)</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>NOP</td><td> </td>
+                        <td>EA</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------ORA------- -->
+            <div class="instructionHolder"
+                data-tags="ORA 09 05 15 0D 1D 19 01 11">
+                <a router href='/instructionset/ORA'></a>
+                <div class="instructionTitle">ORA</div>
+                <div class="instructionFullName">
+                    OR Memory with Accumulator
+                </div>
+                <div class="instructionDescription">Opertation: A ⋁ M → A</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>ORA</td><td>#dd</td>
+                        <td>09</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>ORA</td><td>aa</td>
+                        <td>05</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>ORA</td><td>aa,X</td>
+                        <td>15</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>ORA</td><td>aaaa</td>
+                        <td>0D</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>ORA</td><td>aaaa,X</td>
+                        <td>1D</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>ORA</td><td>aaaa,Y</td>
+                        <td>19</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>ORA</td><td>(aa,X)</td>
+                        <td>01</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>ORA</td><td>(aa),Y</td>
+                        <td>11</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+
+    <!-- ------PHA------- -->
+            <div class="instructionHolder"
+                data-tags="PHA 48">
+                <a router href='/instructionset/PHA'></a>
+                <div class="instructionTitle">PHA</div>
+                <div class="instructionFullName">
+                    Push Accumulator on Stack
+                </div>
+                <div class="instructionDescription">Opertation: A↓</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>PHA</td><td> </td>
+                        <td>48</td>
+                        <td>1</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------PHP------- -->
+            <div class="instructionHolder"
+                data-tags="PHP 08">
+                <a router href='/instructionset/PHP'></a>
+                <div class="instructionTitle">PHP</div>
+                <div class="instructionFullName">
+                    Push Processor Status on Stack
+                </div>
+                <div class="instructionDescription">Opertation: P↓</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>PHP</td><td> </td>
+                        <td>08</td>
+                        <td>1</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+            
+    <!-- ------PLA------- -->
+            <div class="instructionHolder"
+                data-tags="PLA 68">
+                <a router href='/instructionset/PLA'></a>
+                <div class="instructionTitle">PLA</div>
+                <div class="instructionFullName">
+                    Pull Accumulator from Stack
+                </div>
+                <div class="instructionDescription">Opertation: A↑</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>PLA</td><td> </td>
+                        <td>68</td>
+                        <td>1</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------PLP------- -->
+            <div class="instructionHolder"
+                data-tags="PLP 28">
+                <a router href='/instructionset/PLP'></a>
+                <div class="instructionTitle">PLP</div>
+                <div class="instructionFullName">
+                    Pull Processor Status from Stack
+                </div>
+                <div class="instructionDescription">Opertation: P↑</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td colspan="6">From Stack</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>PLP</td><td> </td>
+                        <td>28</td>
+                        <td>1</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------ROL------- -->
+            <div class="instructionHolder"
+                data-tags="ROL 2A 26 36 2E 3E">
+                <a router href='/instructionset/ROL'></a>
+                <div class="instructionTitle">ROL</div>
+                <div class="instructionFullName">
+                    Rotate Left
+                </div>
+                <div class="instructionDescription">                     M or A</div>
+                <div class="instructionDescription">Opertation: C ← |7|6|5|4|3|2|1|0| ← C</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Accumulator</td>
+                        <td>ROL</td><td>A</td>
+                        <td>2A</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>ROL</td><td>aa</td>
+                        <td>26</td>
+                        <td>2</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>ROL</td><td>aa,X</td>
+                        <td>36</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>ROL</td><td>aaaa</td>
+                        <td>2E</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>ROL</td><td>aaaa,X</td>
+                        <td>3E</td>
+                        <td>3</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------ROR------- -->
+            <div class="instructionHolder"
+                data-tags="ROR 64 66 76 6E 7E">
+                <a router href='/instructionset/ROR'></a>
+                <div class="instructionTitle">ROR</div>
+                <div class="instructionFullName">
+                    Rotate Right
+                </div>
+                <div class="instructionDescription">                     M or A</div>
+                <div class="instructionDescription">Opertation: C → |7|6|5|4|3|2|1|0| → C</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Accumulator</td>
+                        <td>ROR</td><td>A</td>
+                        <td>6A</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>ROR</td><td>aa</td>
+                        <td>66</td>
+                        <td>2</td>
+                        <td>5 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>ROR</td><td>aa,X</td>
+                        <td>76</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>ROR</td><td>aaaa</td>
+                        <td>6E</td>
+                        <td>3</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>ROR</td><td>aaaa,X</td>
+                        <td>7E</td>
+                        <td>3</td>
+                        <td>7 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------RTI------- -->
+            <div class="instructionHolder"
+                data-tags="RTI 40">
+                <a router href='/instructionset/RTI'></a>
+                <div class="instructionTitle">RTI</div>
+                <div class="instructionFullName">
+                    Return from Interrupt
+                </div>
+                <div class="instructionDescription">Opertation: P↑ PC↑</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td colspan="6">From Stack</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>RTI</td><td> </td>
+                        <td>40</td>
+                        <td>1</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------RTS------- -->
+            <div class="instructionHolder"
+                data-tags="RTS 60">
+                <a router href='/instructionset/RTS'></a>
+                <div class="instructionTitle">RTS</div>
+                <div class="instructionFullName">
+                    Return from Subroutine
+                </div>
+                <div class="instructionDescription">Opertation: PC↑, PC + 1 → PC</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>RTS</td><td> </td>
+                        <td>60</td>
+                        <td>1</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------SBC------- -->
+            <div class="instructionHolder"
+                data-tags="SBC E9 E5 F5 ED FD F9 E1 F1">
+                <a router href='/instructionset/SBC'></a>
+                <div class="instructionTitle">SBC</div>
+                <div class="instructionFullName">
+                    Subtract from Accumulator with Carry
+                </div>
+                <div class="instructionDescription">Opertation: A - M - <o>C</o> → A</div>
+                <div class="instructionDescription">      Note: <o>C</o> = Borrow</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>√</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Immediate</td>
+                        <td>SBC</td><td>#dd</td>
+                        <td>E9</td>
+                        <td>2</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>SBC</td><td>aa</td>
+                        <td>E5</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>SBC</td><td>aa,X</td>
+                        <td>F5</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>SBC</td><td>aaaa</td>
+                        <td>ED</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, X</td>
+                        <td>SBC</td><td>aaaa,X</td>
+                        <td>FD</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Absolute, Y</td>
+                        <td>SBC</td><td>aaaa,Y</td>
+                        <td>F9</td>
+                        <td>3</td>
+                        <td>4*</td>
+                    </tr>
+                    <tr>
+                        <td>Indexed Indirect</td>
+                        <td>SBC</td><td>(aa,X)</td>
+                        <td>E1</td>
+                        <td>2</td>
+                        <td>6 </td>
+                    </tr>
+                    <tr>
+                        <td>Indirect Indexed</td>
+                        <td>SBC</td><td>(aa),Y</td>
+                        <td>F1</td>
+                        <td>2</td>
+                        <td>5*</td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+                <div class="exeptions">* Add 1 if page boundery is crossed</div>
+            </div>
+
+    <!-- ------SEC------- -->
+            <div class="instructionHolder"
+                data-tags="SEC 38">
+                <a router href='/instructionset/SEC'></a>
+                <div class="instructionTitle">SEC</div>
+                <div class="instructionFullName">
+                    Set Carry Flag
+                </div>
+                <div class="instructionDescription">Opertation: 1 → C</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>SEC</td><td> </td>
+                        <td>38</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------SED------- -->
+            <div class="instructionHolder"
+                data-tags="SED F8">
+                <a router href='/instructionset/SED'></a>
+                <div class="instructionTitle">SED</div>
+                <div class="instructionFullName">
+                    Set Decimal Mode
+                </div>
+                <div class="instructionDescription">Opertation: 1 → D</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>1</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>SED</td><td> </td>
+                        <td>F8</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+        
+    <!-- ------SEI------- -->
+            <div class="instructionHolder"
+                data-tags="SEI 78">
+                <a router href='/instructionset/SEI'></a>
+                <div class="instructionTitle">SEI</div>
+                <div class="instructionFullName">
+                    Set Interrupt Disable Status
+                </div>
+                <div class="instructionDescription">Opertation: 1 → I</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>1</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>SEI</td><td> </td>
+                        <td>78</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------STA------- -->
+            <div class="instructionHolder"
+               data-tags="STA 85 95 8D 9D 99 81 91">
+                <a router href='/instructionset/STA'></a>
+                <div class="instructionTitle">STA</div>
+               <div class="instructionFullName">
+                   Store Accumulator in Memory
+               </div>
+               <div class="instructionDescription">Opertation: A → M</div>
+
+               <div class="statusHolder">
+                   <table class="statusTable">
+                       <tr>
+                           <th>N</th>
+                           <th>Z</th>
+                           <th>C</th>
+                           <th>I</th>
+                           <th>D</th>
+                           <th>V</th>
+                       </tr>
+                       <tr>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                       </tr>
+                   </table>
+               </div>
+
+               <table class="opTable">
+                   <tr>
+                       <th>Addressing<br>Mode</th>
+                       <th colspan="2">Asembly Language<br>Form</th>
+                       <th>OP<br>CODE</th>
+                       <th>No.<br>Bytes</th>
+                       <th>No.<br>Cycles</th>
+                   </tr>
+                   <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                   <tr>
+                       <td>Zero Page</td>
+                       <td>STA</td><td>aa</td>
+                       <td>85</td>
+                       <td>2</td>
+                       <td>3 </td>
+                   </tr>
+                   <tr>
+                       <td>Zero Page, X</td>
+                       <td>STA</td><td>aa,X</td>
+                       <td>95</td>
+                       <td>2</td>
+                       <td>4 </td>
+                   </tr>
+                   <tr>
+                       <td>Absolute</td>
+                       <td>STA</td><td>aaaa</td>
+                       <td>8D</td>
+                       <td>3</td>
+                       <td>4 </td>
+                   </tr>
+                   <tr>
+                       <td>Absolute, X</td>
+                       <td>STA</td><td>aaaa,X</td>
+                       <td>9D</td>
+                       <td>3</td>
+                       <td>5 </td>
+                   </tr>
+                   <tr>
+                       <td>Absolute, Y</td>
+                       <td>STA</td><td>aaaa,Y</td>
+                       <td>99</td>
+                       <td>3</td>
+                       <td>5 </td>
+                   </tr>
+                   <tr>
+                       <td>Indexed Indirect</td>
+                       <td>STA</td><td>(aa,X)</td>
+                       <td>81</td>
+                       <td>2</td>
+                       <td>6 </td>
+                   </tr>
+                   <tr>
+                       <td>Indirect Indexed</td>
+                       <td>STA</td><td>(aa),Y</td>
+                       <td>91</td>
+                       <td>2</td>
+                       <td>6 </td>
+                   </tr>
+                   <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                   </tr>
+               </table>
+           </div>
+
+    <!-- ------STX------- -->
+            <div class="instructionHolder"
+               data-tags="STX 86 96 8E">
+                <a router href='/instructionset/STX'></a>
+                <div class="instructionTitle">STX</div>
+               <div class="instructionFullName">
+                   Store Index X in Memory
+               </div>
+               <div class="instructionDescription">Opertation: X → M</div>
+
+               <div class="statusHolder">
+                   <table class="statusTable">
+                       <tr>
+                           <th>N</th>
+                           <th>Z</th>
+                           <th>C</th>
+                           <th>I</th>
+                           <th>D</th>
+                           <th>V</th>
+                       </tr>
+                       <tr>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                       </tr>
+                   </table>
+               </div>
+
+               <table class="opTable">
+                   <tr>
+                       <th>Addressing<br>Mode</th>
+                       <th colspan="2">Asembly Language<br>Form</th>
+                       <th>OP<br>CODE</th>
+                       <th>No.<br>Bytes</th>
+                       <th>No.<br>Cycles</th>
+                   </tr>
+                   <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                   <tr>
+                       <td>Zero Page</td>
+                       <td>STX</td><td>aa</td>
+                       <td>86</td>
+                       <td>2</td>
+                       <td>3 </td>
+                   </tr>
+                   <tr>
+                       <td>Zero Page, Y</td>
+                       <td>STX</td><td>aa,Y</td>
+                       <td>96</td>
+                       <td>2</td>
+                       <td>4 </td>
+                   </tr>
+                   <tr>
+                       <td>Absolute</td>
+                       <td>STX</td><td>aaaa</td>
+                       <td>8E</td>
+                       <td>3</td>
+                       <td>4 </td>
+                   </tr>
+                   <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                   </tr>
+               </table>
+           </div>
+
+    <!-- ------STY------- -->
+            <div class="instructionHolder"
+                data-tags="STY 84 94 8C">
+                <a router href='/instructionset/STY'></a>
+                <div class="instructionTitle">STY</div>
+                <div class="instructionFullName">
+                    Store Index Y in Memory
+                </div>
+                <div class="instructionDescription">Opertation: Y → M</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Zero Page</td>
+                        <td>STY</td><td>aa</td>
+                        <td>84</td>
+                        <td>2</td>
+                        <td>3 </td>
+                    </tr>
+                    <tr>
+                        <td>Zero Page, X</td>
+                        <td>STY</td><td>aa,X</td>
+                        <td>94</td>
+                        <td>2</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr>
+                        <td>Absolute</td>
+                        <td>STY</td><td>aaaa</td>
+                        <td>8C</td>
+                        <td>3</td>
+                        <td>4 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------TAX------- -->
+            <div class="instructionHolder"
+                data-tags="TAX AA">
+                <a router href='/instructionset/TAX'></a>
+                <div class="instructionTitle">TAX</div>
+                <div class="instructionFullName">
+                    Transfer Accumulator to Index X
+                </div>
+                <div class="instructionDescription">Opertation: A → X</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>TAX</td><td> </td>
+                        <td>AA</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------TAY------- -->
+            <div class="instructionHolder"
+                data-tags="TAY A8">
+                <a router href='/instructionset/TAY'></a>
+                <div class="instructionTitle">TAY</div>
+                <div class="instructionFullName">
+                    Transfer Accumulator to Index Y
+                </div>
+                <div class="instructionDescription">Opertation: A → Y</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>TAY</td><td> </td>
+                        <td>A8</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------TSX------- -->
+            <div class="instructionHolder"
+                data-tags="TSX BA">
+                <a router href='/instructionset/TSX'></a>
+                <div class="instructionTitle">TSX</div>
+                <div class="instructionFullName">
+                    Transfer Stack Pointer to Index X
+                </div>
+                <div class="instructionDescription">Opertation: S → X</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>TSX</td><td> </td>
+                        <td>BA</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------TXA------- -->
+            <div class="instructionHolder"
+                data-tags="TXA 8A">
+                <a router href='/instructionset/TXA'></a>
+                <div class="instructionTitle">TXA</div>
+                <div class="instructionFullName">
+                    Transfer Index X to Accumulator
+                </div>
+                <div class="instructionDescription">Opertation: X → A</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>TXA</td><td> </td>
+                        <td>8A</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------TXS------- -->
+            <div class="instructionHolder"
+                data-tags="TXS 9A">
+                <a router href='/instructionset/TXS'></a>
+                <div class="instructionTitle">TXS</div>
+                <div class="instructionFullName">
+                    Transfer Index X to Stack Pointer
+                </div>
+                <div class="instructionDescription">Opertation: X → S</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>TXS</td><td> </td>
+                        <td>9A</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+    <!-- ------TYA------- -->
+            <div class="instructionHolder"
+                data-tags="TYA 98">
+                <a router href='/instructionset/TYA'></a>
+                <div class="instructionTitle">TYA</div>
+                <div class="instructionFullName">
+                    Transfer Index Y to Accumulator
+                </div>
+                <div class="instructionDescription">Opertation: Y → A</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>TYA</td><td> </td>
+                        <td>98</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+
+        </div>
+
+
+        <div class="middleHolder">
+            <div class="label">search:</div>
+            <input class="searchInput instructionsetInput">
+            <div class="searchCheckBoxHolder">
+                <input class="searchFromTop" type="checkbox">
+                <div>search from Top</div>
+            </div>
+            <div class="nothingFoundMessage">Nothing Found!</div>
+
+            <div class="instructionInfoHolder"></div>
+        </div>
+
+        <div class="rightHolder">
+            <div class="rightTitle">Symbols</div>
+
+            <table class="symboleTable">
+                <tr><td>A</td><td>Accumulator</td></tr>
+                <tr><td>X,Y</td><td>Index registers</td></tr>
+                <tr><td>M</td><td>Memory</td></tr>
+                <tr><td>P</td><td>Processor status register</td></tr>
+                <tr><td>S</td><td>Stack Pointer</td></tr>
+                <tr><td>√</td><td>Change</td></tr>
+                <tr><td>-</td><td>No change</td></tr>
+                <tr><td>+</td><td>Add</td></tr>
+                <tr><td>⋀</td><td>Logical AND</td></tr>
+                <tr><td>-</td><td>Subtract</td></tr>
+                <tr><td>⋁</td><td>Logical OR</td></tr>
+                <tr><td>⊻</td><td>Logical XOR</td></tr>
+                <tr><td>→,←</td><td>Transfer to</td></tr>
+                <tr><td>PC</td><td>Program counter</td></tr>
+                <tr><td>PCH</td><td>Program counter highbyte</td></tr>
+                <tr><td>PCL</td><td>Program counter lowbyte</td></tr>
+                <tr><td>#dd</td><td>8-bit immediate data value<br>(2 hex digits)</td></tr>
+                <tr><td>aa</td><td>8-bit zero page address<br>(2 hex digits)</td></tr>
+                <tr><td>aaaa</td><td>16-bit absolute address<br>(4 hex digits)</td></tr>
+                <tr><td>↑</td><td>Transfer from stack (Pull)</td></tr>
+                <tr><td>↓</td><td>Transfer onto stack (Push)</td></tr>
+                <tr><td> </td><td> </td></tr>
+
+                <tr><th>Prefix</th><th>Operand Form</th></tr>
+                <tr><td>(none)</td><td>Base 10 (Decimal)</td></tr>
+                <tr><td>$</td><td>Base 16 (Hexadecimal)</td></tr>
+                <tr><td>@</td><td>Base 8 (Octal)</td></tr>
+                <tr><td>%</td><td>Base 2 (Binary)</td></tr>
+                <tr><td>'</td><td>Ascii</td></tr>
+                <tr><td> </td><td> </td></tr>
+                <tr><th>Flag</th><th>Meaning</th></tr>
+                <tr><td>B</td><td>Break Command</td></tr>
+                <tr><td>N</td><td>Negative</td></tr>
+                <tr><td>Z</td><td>Zero</td></tr>
+                <tr><td>C</td><td>Carry</td></tr>
+                <tr><td>I</td><td>IRQ Disable</td></tr>
+                <tr><td>D</td><td>Decimal Mode</td></tr>
+                <tr><td>V</td><td>Overflow</td></tr>
+
+            </table>
+        </div>
+
+        
+    </div>
+
+    <div class="disclaimerHolder">
+
+        <div class="disclaimerWindow">
+            <div class="disclaimerTitle">Disclaimer</div>
+            <div class="disclaimerText"></div>
+            <button class="disclaimerButton controlButton">I Understand</button>
+        </div>
+
+    </div>
+
+
+
+    <script src="disclaimer.js"></script>
+
+    <script src="instructionsetInfo.js"></script>
+    <script src="instructionset.js"></script>
+    
+
+</body>
+</html>

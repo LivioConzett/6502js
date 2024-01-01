@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6502 Processor - Simulation</title>
+    <meta name="description" content="Online 6502 Processor Simulator / posibble debugger. Write 6502 Assembly, set break points, step through the program, or let it run.">
+
+    <link rel="stylesheet" href="simulation.css">
+
+</head>
+<body>
+
+    <div class="mainHolder">
+
+        <div class="leftHolder">
+            
+            <div class="codeHolder">
+                <div class="lineNumbersHolder"></div>
+                <textarea class="codeArea"></textarea>
+            </div>
+
+            <div class="buttonHolder">
+                <button class="settingsButton controlButton">settings</button>
+                <button class="clearTerminalButton controlButton">clear terminal</button>
+                <div class="spacer"></div>
+                <button class="compileButton controlButton">compile</button>
+                <button class="sResetButton controlButton">reset</button>
+                <button class="hResetButton controlButton">mem clear</button>
+                <button class="stepButton controlButton">step</button>
+                <button class="runButton controlButton">run</button>
+                <button class="stopButton controlButton">stop</button>
+            </div>
+
+            <textarea readonly class="terminal"></textarea>
+
+        </div>
+        
+        <div class="middleHolder">
+
+            <div class="memoryLabel">Counters</div>
+            <div class="counterHolder">
+                <table class="counterTable">
+                    <tr>
+                        <th>PC</th>
+                        <th>SP</th>
+                    </tr>
+                    <tr>
+                            <td class="pCounter">0000</td>
+                            <td class="sCounter">00</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="memoryLabel">Registers</div>
+            <div class="registersHolder">
+                <table class="registerTable">
+                    <tr>
+                        <th>A</th>
+                        <th>X</th>
+                        <th>Y</th>
+                    </tr>
+                    <tr>
+                            <td class="aRegister">00</td>
+                            <td class="xRegister">00</td>
+                            <td class="yRegister">00</td>
+                    </tr>
+                </table>
+            </div>  
+
+            <div class="memoryLabel">Status flags</div>
+            <div class="statusFlagHolder">
+                <table class="statusTable">
+                    <tr>
+                        <th>N</th>
+                        <th>V</th>
+                        <th>-</th>
+                        <th>B</th>
+                        <th>D</th>
+                        <th>I</th>
+                        <th>Z</th>
+                        <th>C</th>
+                    </tr>
+                    <tr>
+                            <td class="nStatus">0</td>
+                            <td class="vStatus">0</td>
+                            <td>0</td>
+                            <td class="bStatus">0</td>
+                            <td class="dStatus">0</td>
+                            <td class="iStatus">0</td>
+                            <td class="zStatus">0</td>
+                            <td class="cStatus">0</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="memoryHolder">
+                <div class="memoryLabel">Zero Page RAM</div>
+                <textarea readonly class="zPRamHolder memoryTextArea"></textarea>
+                <div class="memoryLabel">RAM</div>
+                <textarea readonly class="ramHolder memoryTextArea"></textarea>
+                <div class="memoryLabel">ROM</div>
+                <textarea readonly class="romHolder memoryTextArea"></textarea>
+            </div>
+
+
+        </div>
+        
+        <div class="rightHolder">
+            <div class="memoryLabel">Stack</div>
+            <div class="stackArea"></div>
+        </div>
+        
+        <div class="altRightHolder">
+            <div class="lcdScreen">
+                <input  class="lcdLine1 lcdInput">
+                <input  class="lcdLine2 lcdInput">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="settingsHolder">
+
+        <div class="settingsWindow">
+            <div class="settingTitle">Settings</div>
+            <div class="settingUnderTitle">cpu speed</div>
+            <div class="settingtext">Number of milliseconds the cpu waits between each step.</div>
+            <div class="settingtext">10 - 2000</div>
+            <input class="cpuSpeedInput settingInput">
+
+            <div class="spacer"></div>
+
+            <div class="buttonHolder">
+                <button class="settingInfoButton controlButton">info</button>
+                <button class="settingHelpButton controlButton">help</button>
+                <div class="spacer"></div>
+                <button class="settingCancelButton controlButton">cancel</button>
+                <button class="settingSaveButton controlButton">save</button>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="helpHolder">
+
+        <div class="helpWindow">
+
+            <div class="helpWidnoScroll">
+                <div class="settingTitle">Help</div>
+    
+                <div class="settingUnderTitle">LCD Screen</div>
+                <div class="settingtext">
+                    Bit 2 of $6000 is the enable bit of the LCD. This has to be toggled for the LCD to execute a command.<br>
+                    Bit 1 of $6000 is RS.<br>
+                    Bit 0 of $6000 is R/W<br>
+                    Byte $6001 is DB7 - DB 0<br>
+                    <div class="helpTableHolder">
+                        <table class="helpTable">
+                            <tr>
+                                <th>Instruction</th>
+                                <th>RS</th>
+                                <th>R/W</th>
+                                <th>DB7</th>
+                                <th>DB6</th>
+                                <th>DB5</th>
+                                <th>DB4</th>
+                                <th>DB3</th>
+                                <th>DB2</th>
+                                <th>DB1</th>
+                                <th>DB0</th>
+                                <th>description</th>
+                            </tr>
+                            <tr>
+                                <td>Clear Display</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>Clears the LCD Screen</td>
+                            </tr>
+                            <tr>
+                                <td>Change line</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>Changes the line you are on</td>
+                            </tr>
+                            <tr>
+                                <td>Write Data</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td colspan="8">data to be written</td>
+                                <td>Writes data to screen</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer"></div>
+
+            <div class="buttonHolder">
+                <button class="helpInfoButton controlButton">info</button>
+                <div class="spacer"></div>
+                <button class="helpOkButton controlButton">close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimerHolder">
+
+        <div class="disclaimerWindow">
+            <div class="disclaimerTitle">Disclaimer</div>
+            <div class="disclaimerText"></div>
+            <button class="disclaimerButton controlButton">I Understand</button>
+        </div>
+
+    </div>
+
+
+
+    <script src="disclaimer.js"></script>
+    <script src="js6502.js"></script>
+    <script src="simulation.js"></script>
+    
+
+</body>
+</html>

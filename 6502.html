@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6502 Processor - home</title>
+    <meta name="description" content="6502 Processor site with an online Siumulator and OP CODE lookup table.">
+
+    <link rel="stylesheet" href="6502.css">
+
+</head>
+
+<body>
+    
+    <div class="mainTextHolder">
+        <h1 class="mainTitle">6502 Processor</h1>
+        <div class="infoText">
+            As a way of learning how a 6502 processor and compters work in general, I have created this site. On it you can find a 6502 simulator that
+            works 100% within you browser and a look up site for the Instructionset. This is in no way the work of a professional, but rather a hobbyists
+            way of exploring the 6502 processor. 
+        </div>
+    </div>
+    <div class="linkHolder">
+        <div class="link">
+            <a href="/simulation" target="_blank"></a>
+            <div class="linkTitle">SIMULATION</div>
+            <div class="codeHolder">
+                <div class="lineNumbers">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                </div>
+                <div class="code">
+                    <div>  .org $8000</div>
+                    <div> </div>
+                    <div>  ldx #$ff</div>
+                    <div>  txs </div>
+                    <div>  ldx #30 </div>
+                    <div>  lda #$ea</div>
+                    <div> </div>
+                    <div>loop:</div>
+                    <div>  dex</div>
+                    <div>  bne end</div>
+                    <div>  sta $00,x</div>
+                    <div>  jmp loop</div>
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="link">
+            <div class="linkTitle">INSTRUCTIONSET</div>
+            <a href="/instructionset" target=_blank></a>
+            <div class="instructionHolder">
+                <div class="instructionTitle">NOP</div>
+                <div class="instructionFullName">
+                    No Operationr
+                </div>
+                <div class="instructionDescription">Opertation: No Operation (2 cycles)</div>
+
+                <div class="statusHolder">
+                    <table class="statusTable">
+                        <tr>
+                            <th>N</th>
+                            <th>Z</th>
+                            <th>C</th>
+                            <th>I</th>
+                            <th>D</th>
+                            <th>V</th>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <table class="opTable">
+                    <tr>
+                        <th>Addressing<br>Mode</th>
+                        <th colspan="2">Asembly Language<br>Form</th>
+                        <th>OP<br>CODE</th>
+                        <th>No.<br>Bytes</th>
+                        <th>No.<br>Cycles</th>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    <tr>
+                        <td>Implied</td>
+                        <td>NOP</td><td> </td>
+                        <td>EA</td>
+                        <td>1</td>
+                        <td>2 </td>
+                    </tr>
+                    <tr><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+            <div class="aboutMe">
+                <a href="https://3270.livio.tech" target="_blank">about me</a>
+            </div>
+
+    <script src="6502.js"></script>
+
+</body>
+
+</html>
