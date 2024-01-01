@@ -121,10 +121,7 @@ for(let p = 0; p < instructionHoldertList.length; p++){
 
             // change the url
             if(!backButton){
-                const url = window.location.href.split(/instructionset/i)[0];
-                const newUrl = `${url}instructionset/${title}`;
-                // console.log(newUrl);
-                history.pushState({id:'6502 - instructionset'},'6502 - instructionset', newUrl);
+                history.pushState({id:'6502 - instructionset'},'6502 - instructionset', '?is='+title);
             }
             backButton = false;
 
@@ -165,10 +162,14 @@ function urlHandler(){
 
     const url = window.location.href;
 
-    const urlSplit = url.split(/instructionset/i);
-    const urlInstruction = urlSplit[1].split('/')[1].toUpperCase();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
 
-    //go through the list of instructions an click the right one 
+    const urlInstruction = urlParams.get('is');
+
+    console.log(urlInstruction);
+
+    //go through the list of instructions a click the right one
     for(let i = 0; i < instructionHoldertList.length; i ++){
         const title = instructionHoldertList[i].querySelector('.instructionTitle').innerHTML.toUpperCase().trim().replace(/ /g,'');
 
@@ -245,7 +246,7 @@ function search(term){
         // click the element
         element.click();
     }
-    else if(lastFoundElementPos != 0){
+    else if(lastFoundElementPos !== 0){
         // reset the search position and search again
         lastFoundElementPos = 0;
         search(term);
